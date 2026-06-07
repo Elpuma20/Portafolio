@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - José Luis Rodríguez</title>
+  <style>
+    :root {
+      --primary: #1e293b;
+      --secondary: #475569;
+      --accent: #4f46e5;
+      --text: #0f172a;
+      --bg: #ffffff;
+      --line: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.5;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* CV Container */
+    .cv-page {
+      background: var(--bg);
+      width: 100%;
+      max-width: 800px;
+      min-height: 1050px;
+      padding: 50px 60px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    /* Header styling */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    .header-left h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header-left .contact-info {
+      font-size: 13px;
+      color: var(--secondary);
+      margin-top: 6px;
+    }
+
+    .header-left .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .header-left .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    .header-right {
+      text-align: right;
+    }
+
+    .header-right .title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .header-right .subtitle {
+      font-size: 13px;
+      color: var(--secondary);
+      margin-top: 2px;
+    }
+
+    /* Section styling */
+    .section {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 5px;
+    }
+
+    .profile-text {
+      font-size: 13px;
+      text-align: justify;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Tech Stack Styling */
+    .stack-list {
+      font-size: 13px;
+      color: #334155;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stack-item strong {
+      color: var(--primary);
+    }
+
+    /* Experience Styling */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .experience-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .experience-role {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+    }
+
+    .experience-desc {
+      font-size: 13px;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    /* Education styling */
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 13px;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .edu-sub {
+      color: #334155;
+      margin-top: 2px;
+    }
+
+    .edu-right {
+      text-align: right;
+      color: var(--secondary);
+    }
+
+    /* Action Toolbar */
+    .toolbar {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: #4338ca;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .btn-secondary:hover {
+      background-color: #cbd5e1;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: #fff;
+        padding: 0;
+      }
+
+      .toolbar {
+        display: none;
+      }
+
+      .cv-page {
+        box-shadow: none;
+        padding: 0;
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+      }
+      
+      @page {
+        size: letter;
+        margin: 1.5cm 1.8cm 1.5cm 1.8cm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Action Toolbar for user when viewing the preview page -->
+  <div class="toolbar">
+    <a href="/" class="btn btn-secondary">← Volver al Portafolio</a>
+    <button onclick="window.print()" class="btn btn-primary">Imprimir / Guardar como PDF 💾</button>
+  </div>
+
+  <!-- The CV Document -->
+  <div class="cv-page">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <h1>José Luis Rodríguez</h1>
+        <div class="contact-info">
+          +58 424-3375805 &nbsp;•&nbsp; 
+          <a href="mailto:joseluisrodri540@gmail.com">joseluisrodri540@gmail.com</a>
+          <br>
+          San Juan de los Morros, Guárico, Venezuela
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="title">Desarrollador Full-Stack</div>
+        <div class="subtitle">Estudiante de Ingeniería en Sistemas</div>
+      </div>
+    </div>
+
+    <!-- Perfil Técnico -->
+    <div class="section">
+      <div class="section-title">Perfil Técnico</div>
+      <p class="profile-text">
+        Estudiante de Ingeniería en Sistemas con 2 años de trayectoria en desarrollo Full-Stack, enfocado en la creación de herramientas tecnológicas de alto impacto para la gestión corporativa. Comprometido con la innovación constante, me dedico a materializar proyectos de vanguardia dentro del sector de las criptofinanzas, aplicando conocimientos en Solidity y redes Blockchain para fortalecer la infraestructura de billeteras electrónicas. Destaco por mi habilidad para resolver desafíos técnicos y por mi versatilidad operativa en la administración de sistemas y redes.
+      </p>
+    </div>
+
+    <!-- Stack Tecnológico -->
+    <div class="section">
+      <div class="section-title">Stack Tecnológico</div>
+      <div class="stack-list">
+        <div class="stack-item"><strong>Back-end:</strong> Python (FastAPI, Flask), Node.js (Express), Solidity.</div>
+        <div class="stack-item"><strong>Front-end:</strong> JavaScript, TypeScript, React, HTML5, CSS3 (TailwindCSS, Bootstrap), Astro, Svelte, Vite.</div>
+        <div class="stack-item"><strong>Base de Datos:</strong> PostgreSQL, MySQL, SQLite.</div>
+        <div class="stack-item"><strong>Sistemas y DevOps:</strong> Administrador de Sistemas Linux (Arch Linux), Windows, Docker, Bash scripting.</div>
+        <div class="stack-item"><strong>Herramientas y Entorno:</strong> Git (GitHub para control de versiones), VS Code, Google Cloud Storage (GCS).</div>
+        <div class="stack-item"><strong>Especialización en ERP:</strong> Desarrollo y gestión de módulos en Odoo (Python, XML).</div>
+      </div>
+    </div>
+
+    <!-- Experiencia Relevante -->
+    <div class="section">
+      <div class="section-title">Experiencia Relevante</div>
+      <div class="experience-list">
+        <div class="experience-item">
+          <div class="experience-role">Desarrollador Odoo - Sistema de Gestión Universitario (UNERG)</div>
+          <p class="experience-desc">
+            Desarrollo de módulos personalizados en Python y XML para la administración académica. Gestión de bases de datos PostgreSQL y control de versiones mediante GitHub.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="experience-role">Desarrollador Full-Stack - Proyecto BDEC</div>
+          <p class="experience-desc">
+            Diseño de una plataforma para la gestión de empleos comunitarios. Implementación de lógica de negocio en el backend y arquitecturas frontend escalables para el manejo de datos.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="experience-role">Desarrollador Frontend - Dashboard "CEO"</div>
+          <p class="experience-desc">
+            Creación de una Single Page Application (SPA) para la visualización de operaciones en tiempo real. Integración de REST APIs y optimización de la interfaz de usuario para entornos corporativos.
+          </p>
+        </div>
+        <div class="experience-item">
+          <div class="experience-role">Desarrollador Independiente - Aplicaciones Web</div>
+          <p class="experience-desc">
+            Creación de herramientas con React, TypeScript y Vite, incluyendo sistemas de gestión de tareas y prototipos de billeteras electrónicas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Educación -->
+    <div class="section" style="margin-bottom: 0;">
+      <div class="section-title">Educación</div>
+      <div class="education-item">
+        <div>
+          <div class="edu-title">Universidad Nacional Experimental de los Llanos Centrales "Rómulo Gallegos"</div>
+          <div class="edu-sub">Área de Ingeniería de Sistemas</div>
+        </div>
+        <div class="edu-right">
+          <div>2023 – En Curso (7° Semestre)</div>
+          <div>Guárico, Venezuela</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Automatically trigger print modal if query param '?print=true' is present
+    if (window.location.search.includes('print=true')) {
+      window.onload = () => {
+        window.print();
+      };
+    }
+  </script>
+</body>
+</html>
